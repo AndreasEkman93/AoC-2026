@@ -20,14 +20,9 @@
                 if (direction == "L")
                 {
                     Console.Write(dialPosition + " - " + value + " = ");
-                    if (dialPosition >= value)
-                    {
-                        dialPosition -= value;
-                    }
-                    else
-                    {
-                        dialPosition = (dialPosition - value) + 100;
-                    }
+
+                    dialPosition = (dialPosition - value + 100) % 100; // Wrap around using modulo
+
                     Console.Write(dialPosition + "\n");
 
                     if (dialPosition == 0)
@@ -38,14 +33,9 @@
                 else if (direction == "R")
                 {
                     Console.Write(dialPosition + " + " + value + " = ");
-                    if ((dialPosition + value) < 99)
-                    {
-                        dialPosition += value;
-                    }
-                    else
-                    {
-                        dialPosition = (dialPosition + value) - 100;
-                    }
+
+                    dialPosition = (dialPosition + value) % 100; // Wrap around using modulo
+
                     Console.Write(dialPosition + "\n");
                     if (dialPosition == 0)
                     {
